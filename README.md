@@ -38,8 +38,8 @@ Right bellow, I'm gonna list the requirements, some of the main technologies inv
 First, we need to start the infrastructure required by the back-end project. To do that, let's use **docker-compose**:
 
 **`cd backend`**  
-**`docker-compose -f docker/docker-compose.yml build`**
-**`docker-compose -f docker/docker-compose.yml up`**
+**`docker-compose -f docker/docker-compose.yml build`**  
+**`docker-compose -f docker/docker-compose.yml up`**  
 
 At this moment, you should have a Wildfly container proxied by a second one running Nginx. To build and deploy the back-end project, just run:
 
@@ -50,17 +50,17 @@ And now your back-end project should be running!
 To test if everything is working properly, try to access the users service: https://localhost/customers/api/rest/users.
 You'll be redirected to CAS login page. Use **casuser/Mellon** credentials and hit login. You'll finally be redirected to the service URL listing all the users on the sample database.
 
-**Rest API Documentation: https://localhost/customers/api/docs/**
-**CAS login page: https://localhost/customers/cas/login**
-**CAS logout page: https://localhost/customers/cas/logout**
+**Rest API Documentation: https://localhost/customers/api/docs/**  
+**CAS login page: https://localhost/customers/cas/login**  
+**CAS logout page: https://localhost/customers/cas/logout**  
 
 #### 3.2 - Front-end Application
 
 To start the front-end application we're going to use npm.
 
 **`cd ../frontend`**  
-**`npm install`**
-**`npm start`**
+**`npm install`**  
+**`npm start`**  
 
 And that's it! If a browser instance isn't already opened by the start script, just open it and access http://localhost:3000/. If you've already authenticated to CAS in the previous steps, you'll see the React front-end application with the table filled with data. Otherwise, you'll be redirected to CAS login page. Use **casuser/Mellon** credentials and hit login. Now, you should be redirected to the front-end app!
     
