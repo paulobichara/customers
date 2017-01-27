@@ -63,4 +63,9 @@ To start the front-end application we're going to use npm.
 **`npm start`**  
 
 And that's it! If a browser instance isn't already opened by the start script, just open it and access http://localhost:3000/. If you've already authenticated to CAS in the previous steps, you'll see the React front-end application with the table filled with data. Otherwise, you'll be redirected to CAS login page. Use **casuser/Mellon** credentials and hit login. Now, you should be redirected to the front-end app!
+
+### 4 - Troubleshooting
+
+If you're facing any problem with CAS redirection, try to access the [CAS login page](https://localhost/customers/cas/login) directly and add an exception on your browser to trust Nginx self-signed certificate before accessing the front-end application.
+
     
