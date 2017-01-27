@@ -1,0 +1,6 @@
+{
+  "@class" : "org.jasig.cas.services.RegexRegisteredService",
+  "serviceId" : "^http://localhost:3000/.*",
+  "name" : "ReactJS Client Webapp",
+  "id" : 11000003
+}

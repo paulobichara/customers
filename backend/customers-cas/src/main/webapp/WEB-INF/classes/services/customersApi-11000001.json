@@ -1,0 +1,6 @@
+{
+  "@class" : "org.jasig.cas.services.RegexRegisteredService",
+  "serviceId" : "^http://localhost(:8080)?/customers/api/rest/.*",
+  "name" : "HTTP and HTTPS requests from local services",
+  "id" : 11000001
+}

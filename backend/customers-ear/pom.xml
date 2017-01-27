@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.paulobichara</groupId>
+		<artifactId>customers</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>customers-ear</artifactId>
+	<packaging>ear</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+
+	<build>
+		<finalName>customers-${project.version}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10.1</version>
+				<configuration>
+					<applicationName>customers</applicationName>
+					<initializeInOrder>true</initializeInOrder>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<skinnyWars>true</skinnyWars>
+					<modules>
+						<webModule>
+							<groupId>org.paulobichara</groupId>
+							<artifactId>customers-service</artifactId>
+							<contextRoot>/customers/api</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>org.paulobichara</groupId>
+							<artifactId>customers-cas</artifactId>
+							<contextRoot>/customers/cas</contextRoot>
+						</webModule>						
+					</modules>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<configuration>
+ 					<skip>false</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.paulobichara</groupId>
+			<artifactId>customers-service</artifactId>
+			<type>war</type>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.paulobichara</groupId>
+			<artifactId>customers-cas</artifactId>
+			<type>war</type>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>

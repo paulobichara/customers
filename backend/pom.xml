@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.paulobichara</groupId>
+	<artifactId>customers</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>customers-business</module>
+		<module>customers-domain</module>
+		<module>customers-ear</module>
+		<module>customers-service</module>
+		<module>customers-cas</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<version.arquillian_core>1.1.9.Final</version.arquillian_core>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.wildfly.plugins</groupId>
+					<artifactId>wildfly-maven-plugin</artifactId>
+					<version>1.1.0.Beta1</version>
+					<configuration>
+						<username>jbadmin</username>
+						<password>jbadmin123</password>
+ 						<skip>true</skip>						
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.spec.javax.ejb</groupId>
+				<artifactId>jboss-ejb-api_3.2_spec</artifactId>
+				<version>1.0.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.spec.javax.ws.rs</groupId>
+				<artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+				<version>1.0.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.spec</groupId>
+				<artifactId>jboss-javaee-7.0</artifactId>
+				<version>1.0.0.Final</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.arquillian</groupId>
+				<artifactId>arquillian-bom</artifactId>
+				<version>${version.arquillian_core}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<url>http://repo1.maven.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<name>Maven Plugin Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>

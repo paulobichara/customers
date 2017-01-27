@@ -1,0 +1,19 @@
+wildfly:
+    build: wildfly/
+    container_name: wildfly
+    ports:
+            - "8080:8080"
+            - "8443:8443"
+            - "8787:8787"
+            - "9990:9990"
+    environment:
+      - VIRTUAL_HOST=wildfly.h3ll
+
+nginx:
+    build: nginx/
+    container_name: nginx
+    ports:
+            - "80:80"
+            - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
